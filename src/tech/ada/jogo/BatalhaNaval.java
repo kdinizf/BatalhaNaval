@@ -66,14 +66,20 @@ public class BatalhaNaval {
 
                 jogadorDaVez++;
 
-                boolean finalJogo = Validador.validaFinalDoJogo(tabuleiroJogador, tabuleiroComputador);
+                boolean finalJogo = Validador.validaFinalDoJogo(tabuleiroJogador, tabuleiroComputador, submarinos);
 
                 if (finalJogo) {
+                    Tabuleiro.imprimeTabuleiroJogador(tabuleiroJogador);
+                    System.out.println();
+                    System.out.println("#############################################");
+                    System.out.println();
+                    Tabuleiro.imprimeTabuleiroComputador(tabuleiroComputador);
                     break;
                 }
 
             }
 
+            System.out.println();
             System.out.println("Deseja iniciar nova partida (S/N)?");
             resposta = scanner.next();
 
