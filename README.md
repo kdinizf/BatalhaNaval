@@ -1,11 +1,12 @@
 Backlog
-- Colocar um nome pro jogador;
+
 - Validar jogada repetida na mesma posição;
 - Tirar o tabuleiro do computador (deixar só jogador);
 
 Tarefas em andamento
 - Tratar digitar mais de um navio na mesma posição (jogador e computador)
 conferir código na classe Leitor
+- Colocar um nome pro jogador (Karina);
 
 Tarefas realizadas
 - Tirar o tabuleiro do computador (deixar só jogador); (Marcela)
