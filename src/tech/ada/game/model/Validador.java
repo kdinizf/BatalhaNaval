@@ -16,7 +16,7 @@ public class Validador {
 
     }
 
-    public static boolean validaFinalDoJogo(char[][] tabuleiro1, char[][] tabuleiro2, int submarinos) {
+    public static boolean validaFinalDoJogo(char[][] tabuleiro1, char[][] tabuleiro2, int submarinos, String nome) {
 
         int qtdSubmarinosDestruidos1 = 0;
         int qtdSubmarinosDestruidos2 = 0;
@@ -44,7 +44,7 @@ public class Validador {
         }
 
         if (qtdSubmarinosDestruidos1 == submarinos) {
-            System.out.println("\nTodos os navios foram destruídos. O vencedor é o JOGADOR!\n");
+            System.out.println("\nTodos os navios foram destruídos. " + nome + ", você venceu!!!\n");
             return true;
 
         } else if (qtdSubmarinosDestruidos2 == submarinos) {

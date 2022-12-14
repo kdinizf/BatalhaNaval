@@ -16,7 +16,6 @@ public class Tabuleiro {
 
     public static void imprimeTabuleiroJogador(char[][] tabuleiro) {
 
-        String nome;
         System.out.println("  -----------------------------------------");
         System.out.println("                    JOGADOR                ");
         System.out.println("  -----------------------------------------");

@@ -7,7 +7,7 @@ public class Jogador {
     static Scanner scanner = new Scanner(System.in);
     static String nome;
 
-    public String getNome() {
+    public static String getNome() {
         System.out.println("\nDigite o seu nome:");
         nome = scanner.next();
         return nome;
