@@ -1,4 +1,4 @@
-package tech.ada.jogo;
+package tech.ada.jogo.utils;
 
 public class Tabuleiro {
 

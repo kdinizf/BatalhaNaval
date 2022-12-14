@@ -84,9 +84,9 @@ public class Coordenadas {
                 tabuleiro1[linha][coluna] = 'n';
             }
 
-            if (tabuleiro1[linha][coluna] == 'n' || tabuleiro1[linha][coluna] == 'X' || tabuleiro1[linha][coluna] == '-' || tabuleiro1[linha][coluna] == '*') {
+            /*if (tabuleiro1[linha][coluna] == 'n' || tabuleiro1[linha][coluna] == 'X' || tabuleiro1[linha][coluna] == '-' || tabuleiro1[linha][coluna] == '*') {
                 System.out.println("Posição já jogada anteriormente. Tente novamente!");
-            }
+            }*/
 
         } catch (RuntimeException e) {
             solicitaJogadaJogador(tabuleiro1, tabuleiro2);
@@ -125,9 +125,9 @@ public class Coordenadas {
             tabuleiro1[linha][coluna] = 'n';
         }
 
-        if (tabuleiro1[linha][coluna] == 'n' || tabuleiro1[linha][coluna] == 'X' || tabuleiro1[linha][coluna] == '-' || tabuleiro1[linha][coluna] == '*') {
+        /*if (tabuleiro1[linha][coluna] == 'n' || tabuleiro1[linha][coluna] == 'X' || tabuleiro1[linha][coluna] == '-' || tabuleiro1[linha][coluna] == '*') {
             System.out.println("Posição já jogada anteriormente. Tente novamente!");
-        }
+        }*/
 
     }
 
