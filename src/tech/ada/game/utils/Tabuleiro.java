@@ -1,5 +1,7 @@
 package tech.ada.game.utils;
 
+import tech.ada.game.model.Jogador;
+
 public class Tabuleiro {
 
     public static void iniciaTabuleiro(char[][] tabuleiro) {

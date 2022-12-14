@@ -1,7 +1,8 @@
 package tech.ada.game;
 
-import tech.ada.game.gameplay.Coordenadas;
-import tech.ada.game.gameplay.Validador;
+import tech.ada.game.model.Coordenadas;
+import tech.ada.game.model.Jogador;
+import tech.ada.game.model.Validador;
 import tech.ada.game.utils.Tabuleiro;
 
 import java.util.Scanner;
@@ -11,6 +12,7 @@ public class BatalhaNaval {
     static char[][] tabuleiroJogador = new char[10][10];
     static char[][] tabuleiroComputador = new char[10][10];
     static int submarinos;
+    static String nome;
 
     public static void main(String[] args) {
 
@@ -19,12 +21,12 @@ public class BatalhaNaval {
 
         do {
 
-            System.out.println("#############################################");
+            System.out.println("Digite o seu nome:");
+            nome = scanner.next();
+            System.out.println("\n#############################################");
             System.out.println("############### BATALHA NAVAL ###############");
             System.out.println("#############################################");
-            System.out.println();
-            System.out.println("              Iniciando partida!             ");
-            System.out.println();
+            System.out.println("\n              Iniciando partida!             \n");
 
             // Iniciando tabuleiros
             Tabuleiro.iniciaTabuleiro(tabuleiroJogador);
@@ -33,8 +35,7 @@ public class BatalhaNaval {
             // Imprimindo tabuleiro vazio
             Tabuleiro.imprimeTabuleiroJogador(tabuleiroJogador);
 
-            System.out.println();
-            System.out.println("Posicione os seus submarinos!");
+            System.out.println("\nPosicione os seus submarinos!");
             System.out.println("Informe a quantidade que deseja posicionar:");
             submarinos = scanner.nextInt();
             System.out.println();
@@ -44,8 +45,7 @@ public class BatalhaNaval {
             System.out.println();
 
             Coordenadas.posicionaSubmarinosComputador(tabuleiroComputador, submarinos);
-            System.out.println("Computador já posicionou seus Submarinos!");
-            System.out.println();
+            System.out.println("Computador já posicionou seus Submarinos!\n");
             Tabuleiro.imprimeTabuleiroComputador(tabuleiroComputador);
 
             // Iniciando o Jogo
@@ -72,17 +72,14 @@ public class BatalhaNaval {
 
                 if (finalJogo) {
                     Tabuleiro.imprimeTabuleiroJogador(tabuleiroJogador);
-                    System.out.println();
-                    System.out.println("#############################################");
-                    System.out.println();
+                    System.out.println("\n#############################################\n");
                     Tabuleiro.imprimeTabuleiroComputador(tabuleiroComputador);
                     break;
                 }
 
             }
 
-            System.out.println();
-            System.out.println("Deseja iniciar nova partida (S/N)?");
+            System.out.println("\nDeseja iniciar nova partida (S/N)?");
             resposta = scanner.next();
 
         }

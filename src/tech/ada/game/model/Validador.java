@@ -1,4 +1,4 @@
-package tech.ada.game.gameplay;
+package tech.ada.game.model;
 
 public class Validador {
 
@@ -7,14 +7,10 @@ public class Validador {
         // Se for par será Jogador
         // Se for ímpar será Computador
         if (jogadorDaVez % 2 == 0) {
-            System.out.println();
-            System.out.println("É a sua vez de bombardear!");
-            System.out.println();
+            System.out.println("\nÉ a sua vez de bombardear!\n");
             return 'J';
         } else {
-            System.out.println();
-            System.out.println("É a vez do Computador bombardear!");
-            System.out.println();
+            System.out.println("\nÉ a vez do Computador bombardear!\n");
             return 'C';
         }
 
@@ -48,15 +44,11 @@ public class Validador {
         }
 
         if (qtdSubmarinosDestruidos1 == submarinos) {
-            System.out.println();
-            System.out.println("Todos os navios foram destruídos. O vencedor é o JOGADOR!");
-            System.out.println();
+            System.out.println("\nTodos os navios foram destruídos. O vencedor é o JOGADOR!\n");
             return true;
 
         } else if (qtdSubmarinosDestruidos2 == submarinos) {
-            System.out.println();
-            System.out.println("Todos os navios foram destruídos. O vencedor é o Computador!");
-            System.out.println();
+            System.out.println("\nTodos os navios foram destruídos. O vencedor é o Computador!\n");
             return true;
 
         } else {

@@ -1,4 +1,4 @@
-package tech.ada.game.gameplay;
+package tech.ada.game.model;
 
 import tech.ada.game.utils.Leitor;
 
@@ -61,32 +61,27 @@ public class Coordenadas {
             int coluna = Leitor.lerColuna();
 
             if (tabuleiro2[linha][coluna] == ' ' && tabuleiro1[linha][coluna] == ' ') {
-                System.out.println();
-                System.out.println("Tiro na água!");
+                System.out.println("\nTiro na água!");
                 tabuleiro1[linha][coluna] = '-';
             }
 
             if (tabuleiro2[linha][coluna] == ' ' && tabuleiro1[linha][coluna] == 'N') {
-                System.out.println();
-                System.out.println("Tiro na água!");
+                System.out.println("\nTiro na água!");
                 tabuleiro1[linha][coluna] = 'n';
             }
 
             if (tabuleiro2[linha][coluna] == 'N' && tabuleiro1[linha][coluna] == ' ') {
-                System.out.println();
-                System.out.println("Tiro certeiro!");
+                System.out.println("\nTiro certeiro!");
                 tabuleiro1[linha][coluna] = '*';
             }
 
             if (tabuleiro2[linha][coluna] == 'N' && tabuleiro1[linha][coluna] == 'N') {
-                System.out.println();
-                System.out.println("Tiro certeiro!");
+                System.out.println("\nTiro certeiro!");
                 tabuleiro1[linha][coluna] = 'X';
             }
 
             if (tabuleiro2[linha][coluna] == '*' && tabuleiro1[linha][coluna] == 'N') {
-                System.out.println();
-                System.out.println("Tiro na água!");
+                System.out.println("\nTiro na água!");
                 tabuleiro1[linha][coluna] = 'n';
             }
 
