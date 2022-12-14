@@ -1,3 +1,5 @@
+package tech.ada.jogo;
+
 public class Tabuleiro {
 
     public static void iniciaTabuleiro(char[][] tabuleiro) {

@@ -1,3 +1,5 @@
+package tech.ada.jogo;
+
 public class BatalhaNaval {
 
     static char[][] tabuleiroJogador = new char[10][10];
@@ -55,6 +57,7 @@ public class BatalhaNaval {
             }
 
         }
+
 
     }
 

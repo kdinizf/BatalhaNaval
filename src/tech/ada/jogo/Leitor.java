@@ -1,3 +1,5 @@
+package tech.ada.jogo;
+
 import java.util.Scanner;
 
 public class Leitor {
@@ -5,6 +7,7 @@ public class Leitor {
     static Scanner scanner = new Scanner(System.in);
     static int linha;
     static int coluna;
+
     public static int lerLinha() {
 
         System.out.println("Informe a linha (0-9):");

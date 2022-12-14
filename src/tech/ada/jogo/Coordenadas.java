@@ -1,5 +1,6 @@
+package tech.ada.jogo;
+
 import java.util.Random;
-import java.util.Scanner;
 
 public class Coordenadas {
 
@@ -42,29 +43,48 @@ public class Coordenadas {
 
     }
 
+    // '*' - Tiro certeiro
+    // 'X' - Tiro certeiro no tabuleiro do adversário, porém tem uma navio seu na posição
+    // 'N' - Submarino posicionado
+    // 'n' - Submarino posicionado no seu tabuleiro, porém foi água no tabuleiro do adversário
+    // '-' - Tiro na água
+    // ' ' - Sem tiro
+
     public static void solicitaJogadaJogador(char[][] tabuleiro1, char[][] tabuleiro2) {
 
-        int linha = Leitor.lerLinha();
-        int coluna = Leitor.lerColuna();
+        try {
 
-        if (tabuleiro2[linha][coluna] == ' ' && tabuleiro1[linha][coluna] == ' ') {
-            System.out.println("Tiro na água!");
-            tabuleiro1[linha][coluna] = '-';
-        }
+            int linha = Leitor.lerLinha();
+            int coluna = Leitor.lerColuna();
 
-        if (tabuleiro2[linha][coluna] == ' ' && tabuleiro1[linha][coluna] == 'N') {
-            System.out.println("Tiro na água!");
-            tabuleiro1[linha][coluna] = 'n';
-        }
+            if (tabuleiro2[linha][coluna] == ' ' && tabuleiro1[linha][coluna] == ' ') {
+                System.out.println("Tiro na água!");
+                tabuleiro1[linha][coluna] = '-';
+            }
 
-        if (tabuleiro2[linha][coluna] == 'N' && tabuleiro1[linha][coluna] == ' ') {
-            System.out.println("Tiro certeiro!");
-            tabuleiro1[linha][coluna] = '*';
-        }
+            if (tabuleiro2[linha][coluna] == ' ' && tabuleiro1[linha][coluna] == 'N') {
+                System.out.println("Tiro na água!");
+                tabuleiro1[linha][coluna] = 'n';
+            }
 
-        if (tabuleiro2[linha][coluna] == 'N' && tabuleiro1[linha][coluna] == 'N') {
-            System.out.println("Tiro certeiro!");
-            tabuleiro1[linha][coluna] = 'X';
+            if (tabuleiro2[linha][coluna] == 'N' && tabuleiro1[linha][coluna] == ' ') {
+                System.out.println("Tiro certeiro!");
+                tabuleiro1[linha][coluna] = '*';
+            }
+
+            if (tabuleiro2[linha][coluna] == 'N' && tabuleiro1[linha][coluna] == 'N') {
+                System.out.println("Tiro certeiro!");
+                tabuleiro1[linha][coluna] = 'X';
+            }
+
+            if (tabuleiro2[linha][coluna] == '*' && tabuleiro1[linha][coluna] == 'N') {
+                System.out.println("Tiro na água!");
+                tabuleiro1[linha][coluna] = 'n';
+            }
+
+        } catch (RuntimeException e) {
+            solicitaJogadaJogador(tabuleiro1, tabuleiro2);
+
         }
 
     }
@@ -79,17 +99,7 @@ public class Coordenadas {
             tabuleiro1[linha][coluna] = '-';
         }
 
-        if (tabuleiro2[linha][coluna] == '*' && tabuleiro1[linha][coluna] == ' ') {
-            System.out.println("Tiro na água!");
-            tabuleiro1[linha][coluna] = '-';
-        }
-
         if (tabuleiro2[linha][coluna] == ' ' && tabuleiro1[linha][coluna] == 'N') {
-            System.out.println("Tiro na água!");
-            tabuleiro1[linha][coluna] = 'n';
-        }
-
-        if (tabuleiro2[linha][coluna] == '*' && tabuleiro1[linha][coluna] == 'N') {
             System.out.println("Tiro na água!");
             tabuleiro1[linha][coluna] = 'n';
         }
@@ -99,19 +109,14 @@ public class Coordenadas {
             tabuleiro1[linha][coluna] = '*';
         }
 
-        if (tabuleiro2[linha][coluna] == 'n' && tabuleiro1[linha][coluna] == ' ') {
-            System.out.println("Tiro certeiro!");
-            tabuleiro1[linha][coluna] = '*';
-        }
-
         if (tabuleiro2[linha][coluna] == 'N' && tabuleiro1[linha][coluna] == 'N') {
             System.out.println("Tiro certeiro!");
             tabuleiro1[linha][coluna] = 'X';
         }
 
-        if (tabuleiro2[linha][coluna] == 'n' && tabuleiro1[linha][coluna] == 'N') {
-            System.out.println("Tiro certeiro!");
-            tabuleiro1[linha][coluna] = 'X';
+        if (tabuleiro2[linha][coluna] == '*' && tabuleiro1[linha][coluna] == 'N') {
+            System.out.println("Tiro na água!");
+            tabuleiro1[linha][coluna] = 'n';
         }
 
     }
