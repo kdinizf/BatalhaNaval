@@ -51,12 +51,15 @@ public class Validador {
             System.out.println();
             System.out.println("Todos os navios foram destruídos. O vencedor é o JOGADOR!");
             return true;
+
         } else if (qtdSubmarinosAfundados2 == 2) {
             System.out.println();
             System.out.println("Todos os navios foram destruídos. O vencedor é o Computador!");
             return true;
+
         } else {
             return false;
+
         }
 
     }
