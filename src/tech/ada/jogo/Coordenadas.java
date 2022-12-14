@@ -3,16 +3,17 @@ package tech.ada.jogo;
 import tech.ada.jogo.utils.Leitor;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Coordenadas {
 
     static Random random = new Random();
+    static Scanner scanner = new Scanner(System.in);
 
-    public static void posicionaSubmarinosJogador(char[][] tabuleiro) {
+    public static void posicionaSubmarinosJogador(char[][] tabuleiro, int submarinos) {
 
         int qtdSubmarinos = 1;
-
-        while (qtdSubmarinos <= 10) {
+        while (qtdSubmarinos <= submarinos) {
 
             System.out.println("*************** Submarino " + qtdSubmarinos + " ***************");
 
@@ -28,11 +29,11 @@ public class Coordenadas {
 
     }
 
-    public static void posicionaSubmarinosComputador(char[][] tabuleiro) {
+    public static void posicionaSubmarinosComputador(char[][] tabuleiro, int submarinos) {
 
         int qtdSubmarinos = 1;
 
-        while (qtdSubmarinos <= 10) {
+        while (qtdSubmarinos <= submarinos) {
 
             int linha = random.nextInt(10);
             int coluna = random.nextInt(10);

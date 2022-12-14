@@ -8,6 +8,7 @@ public class BatalhaNaval {
 
     static char[][] tabuleiroJogador = new char[10][10];
     static char[][] tabuleiroComputador = new char[10][10];
+    static int submarinos;
 
     public static void main(String[] args) {
 
@@ -32,13 +33,15 @@ public class BatalhaNaval {
 
             System.out.println();
             System.out.println("Posicione os seus submarinos!");
+            System.out.println("Informe a quantidade que deseja posicionar:");
+            submarinos = scanner.nextInt();
             System.out.println();
-            Coordenadas.posicionaSubmarinosJogador(tabuleiroJogador);
+            Coordenadas.posicionaSubmarinosJogador(tabuleiroJogador, submarinos);
             System.out.println();
             Tabuleiro.imprimeTabuleiroJogador(tabuleiroJogador);
             System.out.println();
 
-            Coordenadas.posicionaSubmarinosComputador(tabuleiroComputador);
+            Coordenadas.posicionaSubmarinosComputador(tabuleiroComputador, submarinos);
             System.out.println("Computador já posicionou seus Submarinos!");
             System.out.println();
             Tabuleiro.imprimeTabuleiroComputador(tabuleiroComputador);
