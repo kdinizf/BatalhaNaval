@@ -1,4 +1,4 @@
-package tech.ada.jogo;
+package tech.ada.game.gameplay;
 
 public class Validador {
 

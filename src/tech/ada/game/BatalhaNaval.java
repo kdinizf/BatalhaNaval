@@ -1,6 +1,8 @@
-package tech.ada.jogo;
+package tech.ada.game;
 
-import tech.ada.jogo.utils.Tabuleiro;
+import tech.ada.game.gameplay.Coordenadas;
+import tech.ada.game.gameplay.Validador;
+import tech.ada.game.utils.Tabuleiro;
 
 import java.util.Scanner;
 

@@ -1,6 +1,6 @@
-package tech.ada.jogo;
+package tech.ada.game.gameplay;
 
-import tech.ada.jogo.utils.Leitor;
+import tech.ada.game.utils.Leitor;
 
 import java.util.Random;
 import java.util.Scanner;

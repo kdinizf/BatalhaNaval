@@ -1,4 +1,4 @@
-package tech.ada.jogo.utils;
+package tech.ada.game.utils;
 
 import java.util.Scanner;
 
