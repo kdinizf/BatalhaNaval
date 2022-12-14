@@ -11,4 +11,4 @@ Tarefas realizadas
 - Tirar o tabuleiro do computador (deixar só jogador); (Marcela)
 - Ao final do jogo, perguntar se quer jogar novamente e zerar tabuleiros; (Karina)
 - Criar uma variável para quantidade de submarinos (Karina);
-- - Separar em pacotes; (Karina)
+- Separar em pacotes; (Karina)
