@@ -18,15 +18,18 @@ public class BatalhaNaval {
 
         String resposta = "S";
         Scanner scanner = new Scanner(System.in);
+        Jogador jogador = new Jogador();
 
         do {
 
-            System.out.println("Digite o seu nome:");
-            nome = scanner.next();
             System.out.println("\n#############################################");
             System.out.println("############### BATALHA NAVAL ###############");
             System.out.println("#############################################");
+
+            nome = jogador.getNome();
+
             System.out.println("\n              Iniciando partida!             \n");
+
 
             // Iniciando tabuleiros
             Tabuleiro.iniciaTabuleiro(tabuleiroJogador);
@@ -42,11 +45,9 @@ public class BatalhaNaval {
             Coordenadas.posicionaSubmarinosJogador(tabuleiroJogador, submarinos);
             System.out.println();
             Tabuleiro.imprimeTabuleiroJogador(tabuleiroJogador);
-            System.out.println();
 
             Coordenadas.posicionaSubmarinosComputador(tabuleiroComputador, submarinos);
-            System.out.println("Computador já posicionou seus Submarinos!\n");
-            Tabuleiro.imprimeTabuleiroComputador(tabuleiroComputador);
+            System.out.println("\nComputador já posicionou seus Submarinos!");
 
             // Iniciando o Jogo
             int jogadorDaVez = 0;
@@ -63,7 +64,7 @@ public class BatalhaNaval {
                 if (jogadorDaVezJOuC == 'C') {
                     Coordenadas.solicitaJogadaComputador(tabuleiroComputador, tabuleiroJogador);
                     System.out.println();
-                    Tabuleiro.imprimeTabuleiroComputador(tabuleiroComputador);
+                    //Tabuleiro.imprimeTabuleiroComputador(tabuleiroComputador);
                 }
 
                 jogadorDaVez++;

@@ -9,6 +9,7 @@ public class Coordenadas {
 
     static Random random = new Random();
     static Scanner scanner = new Scanner(System.in);
+    static Leitor leitor = new Leitor();
 
     public static void posicionaSubmarinosJogador(char[][] tabuleiro, int submarinos) {
 

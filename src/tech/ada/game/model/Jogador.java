@@ -1,11 +1,15 @@
 package tech.ada.game.model;
 
+import java.util.Scanner;
+
 public class Jogador {
 
-    String nome;
+    static Scanner scanner = new Scanner(System.in);
+    static String nome;
 
     public String getNome() {
-        System.out.println("Digite o seu nome:");
+        System.out.println("\nDigite o seu nome:");
+        nome = scanner.next();
         return nome;
     }
 
