@@ -29,7 +29,7 @@ public class BatalhaNaval {
         Coordenadas.posicionaSubmarinosComputador(tabuleiroComputador);
         System.out.println("Computador já posicionou seus Submarinos!");
         System.out.println();
-        Tabuleiro.imprimeTabuleiroComputador(tabuleiroComputador);
+//        Tabuleiro.imprimeTabuleiroComputador(tabuleiroComputador);
 
         // Iniciando o Jogo
         int jogadorDaVez = 0;
@@ -39,14 +39,15 @@ public class BatalhaNaval {
 
             if (jogadorDaVezJOuC == 'J') {
                 Coordenadas.solicitaJogadaJogador(tabuleiroJogador, tabuleiroComputador);
+                Tabuleiro.imprimeTabuleiroJogador(tabuleiroJogador);                                //imprimir tabuleiro somente quando for a vez do jogador
             }
 
             if (jogadorDaVezJOuC == 'C') {
                 Coordenadas.solicitaJogadaComputador(tabuleiroComputador, tabuleiroJogador);
             }
 
-            Tabuleiro.imprimeTabuleiroJogador(tabuleiroJogador);
-            Tabuleiro.imprimeTabuleiroComputador(tabuleiroComputador);
+//            Tabuleiro.imprimeTabuleiroJogador(tabuleiroJogador);
+//            Tabuleiro.imprimeTabuleiroComputador(tabuleiroComputador);
 
             jogadorDaVez++;
 

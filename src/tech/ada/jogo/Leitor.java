@@ -33,7 +33,13 @@ public class Leitor {
         } else {
             return coluna;
         }
-
+//        char posicao = tabuleiro1[linha][coluna];
+//
+//        if (posicao == 'N') {
+//            System.out.println("Posição já preenchida. Tente novamente!");
+//            throw new RuntimeException("Posição já preenchida. Tente novamente!");
+//        }
+//
     }
 
 }
