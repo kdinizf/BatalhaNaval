@@ -60,7 +60,6 @@ public class Coordenadas {
                 tabuleiro[linha][coluna] = "N";
 
             } catch (PosicaoPreenchidaException e) {
-                System.out.println(e.getMessage());
                 continue;
 
             }
