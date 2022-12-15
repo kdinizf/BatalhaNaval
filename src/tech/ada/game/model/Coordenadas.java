@@ -98,7 +98,6 @@ public class Coordenadas {
             meuTabuleiro[linha][coluna] = validadorPosicao.disparo();
 
         } catch (PosicaoPreenchidaException e) {
-            System.out.println(e.getMessage());
             solicitaJogadaComputador(meuTabuleiro, tabuleiroInimigo);
 
         }
