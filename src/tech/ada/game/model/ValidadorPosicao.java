@@ -8,22 +8,23 @@ public class ValidadorPosicao {
     private String meuCampo;
     private String novoValor;
 
-    public ValidadorPosicao(String[][] tabuleiroInimigo, String[][] meuTabuleiro, int linha, int coluna) {
+    public ValidadorPosicao(String[][] meuTabuleiro, String[][] tabuleiroInimigo, int linha, int coluna) {
 
-        campoInimigo = tabuleiroInimigo[linha][coluna];
         meuCampo = meuTabuleiro[linha][coluna];
+        campoInimigo = tabuleiroInimigo[linha][coluna];
+
 
     }
 
     public String disparo() {
 
-        validaCampoVazioOuJaJogado(campoInimigo, meuCampo);
-        validaDisparo(campoInimigo, meuCampo);
+        validaCampoVazioOuJaJogado(meuCampo, campoInimigo);
+        validaDisparo(meuCampo, campoInimigo);
         return novoValor;
 
     }
 
-    private void validaCampoVazioOuJaJogado(String campoInimigo, String meuCampo) {
+    private void validaCampoVazioOuJaJogado(String meuCampo, String campoInimigo) {
 
         if (campoInimigo.equals(" ") && meuCampo.equals(" ")) {
             System.out.println("Tiro na água!");
@@ -34,9 +35,12 @@ public class ValidadorPosicao {
 
     }
 
-    private void validaDisparo(String campoInimigo, String meuCampo) {
+    private void validaDisparo(String meuCampo, String campoInimigo) {
 
         if (campoInimigo.equals("N") && meuCampo.equals(" ")) {
+            System.out.println("Tiro certeiro!");
+            novoValor = "*";
+        } else if (campoInimigo.equals("n") && meuCampo.equals(" ")) {
             System.out.println("Tiro certeiro!");
             novoValor = "*";
         } else if (campoInimigo.equals("N") && meuCampo.equals("N")) {

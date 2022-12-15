@@ -21,10 +21,10 @@ public class Coordenadas {
 
             System.out.println("*************** Submarino " + qtdSubmarinos + " ***************");
 
-            int linha = leitor.lerLinha();
-            int coluna = leitor.lerColuna();
-
             try {
+
+                int linha = leitor.lerLinha();
+                int coluna = leitor.lerColuna();
 
                 if (tabuleiro[linha][coluna].equals("N")) {
                     throw new PosicaoPreenchidaException();
@@ -50,6 +50,7 @@ public class Coordenadas {
         while (qtdSubmarinos <= submarinos) {
 
             try {
+
                 int linha = random.nextInt(10);
                 int coluna = random.nextInt(10);
 
@@ -77,7 +78,7 @@ public class Coordenadas {
             int linha = leitor.lerLinha();
             int coluna = leitor.lerColuna();
 
-            ValidadorPosicao validadorPosicao = new ValidadorPosicao(tabuleiroInimigo, meuTabuleiro, linha, coluna);
+            ValidadorPosicao validadorPosicao = new ValidadorPosicao(meuTabuleiro, tabuleiroInimigo, linha, coluna);
             meuTabuleiro[linha][coluna] = validadorPosicao.disparo();
 
         } catch (ValorInvalidoException | PosicaoPreenchidaException e) {
@@ -94,7 +95,7 @@ public class Coordenadas {
             int linha = random.nextInt(10);
             int coluna = random.nextInt(10);
 
-            ValidadorPosicao validadorPosicao = new ValidadorPosicao(tabuleiroInimigo, meuTabuleiro, linha, coluna);
+            ValidadorPosicao validadorPosicao = new ValidadorPosicao(meuTabuleiro, tabuleiroInimigo , linha, coluna);
             meuTabuleiro[linha][coluna] = validadorPosicao.disparo();
 
         } catch (PosicaoPreenchidaException e) {

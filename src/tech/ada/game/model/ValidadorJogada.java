@@ -19,38 +19,38 @@ public class ValidadorJogada {
 
     }
 
-    public boolean validaFinalDoJogo(String[][] tabuleiro1, String[][] tabuleiro2, int submarinos, String nome) {
+    public boolean validaFinalDoJogo(String[][] meuTabuleiro, String[][] tabuleiroInimigo, int submarinos, String nome) {
 
-        int qtdSubmarinosDestruidos1 = 0;
-        int qtdSubmarinosDestruidos2 = 0;
+        int qtdSubJogadorDestruiu = 0;
+        int qtdSubComputadorDestruiu = 0;
 
-        for (int i = 0; i < tabuleiro1.length; i++) {
+        for (int i = 0; i < meuTabuleiro.length; i++) {
 
-            for (int j = 0; j < tabuleiro1[i].length; j++) {
-                String embarcacao = tabuleiro1[i][j];
+            for (int j = 0; j < meuTabuleiro[i].length; j++) {
+                String embarcacao = meuTabuleiro[i][j];
 
                 if (embarcacao == "X" || embarcacao == "*") {
-                    qtdSubmarinosDestruidos1++;
+                    qtdSubJogadorDestruiu++;
                 }
             }
         }
 
-        for (int i = 0; i < tabuleiro2.length; i++) {
+        for (int i = 0; i < tabuleiroInimigo.length; i++) {
 
-            for (int j = 0; j < tabuleiro2[i].length; j++) {
-                String embarcacao = tabuleiro2[i][j];
+            for (int j = 0; j < tabuleiroInimigo[i].length; j++) {
+                String embarcacao = tabuleiroInimigo[i][j];
 
                 if (embarcacao == "X" || embarcacao == "*") {
-                    qtdSubmarinosDestruidos2++;
+                    qtdSubComputadorDestruiu++;
                 }
             }
         }
 
-        if (qtdSubmarinosDestruidos1 == submarinos) {
+        if (qtdSubJogadorDestruiu == submarinos) {
             System.out.println("\nTodos os navios foram destruídos. " + nome.toUpperCase() + ", você venceu!!!\n");
             return true;
 
-        } else if (qtdSubmarinosDestruidos2 == submarinos) {
+        } else if (qtdSubComputadorDestruiu == submarinos) {
             System.out.println("\nTodos os navios foram destruídos. O vencedor é o Computador!\n");
             return true;
 
