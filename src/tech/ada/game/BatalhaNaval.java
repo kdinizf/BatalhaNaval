@@ -33,7 +33,6 @@ public class BatalhaNaval {
 
             System.out.println("\n              Iniciando partida!             \n");
 
-
             // Iniciando tabuleiros
             tabuleiro.iniciaTabuleiro(tabuleiroJogador);
             tabuleiro.iniciaTabuleiro(tabuleiroComputador);
