@@ -13,7 +13,6 @@ public class ValidadorPosicao {
         meuCampo = meuTabuleiro[linha][coluna];
         campoInimigo = tabuleiroInimigo[linha][coluna];
 
-
     }
 
     public String disparo() {
