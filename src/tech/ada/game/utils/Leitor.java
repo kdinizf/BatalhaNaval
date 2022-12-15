@@ -1,46 +1,39 @@
 package tech.ada.game.utils;
 
+import tech.ada.game.exceptions.ValorInvalidoException;
+
 import java.util.Scanner;
 
 public class Leitor {
 
-    static Scanner scanner = new Scanner(System.in);
-    static int linha;
-    static int coluna;
+    private Scanner scanner = new Scanner(System.in);
 
-    public static int lerLinha() {
+    public Leitor() {
+    }
+
+    public int lerLinha() {
 
         System.out.println("Informe a linha (0-9):");
-        linha = scanner.nextInt();
+        int linha = scanner.nextInt();
 
         if (linha < 0 || linha > 9) {
-            System.out.println("Posição inválida. Tente novamente!");
-            throw new RuntimeException("Posição inválida. Tente novamente!");
+            throw new ValorInvalidoException();
         } else {
             return linha;
         }
 
     }
 
-    public static int lerColuna() {
+    public int lerColuna() {
 
         System.out.println("Informe a coluna (0-9):");
-        coluna = scanner.nextInt();
+        int coluna = scanner.nextInt();
 
         if (coluna < 0 || coluna > 9) {
-            System.out.println("Posição inválida. Tente novamente!");
-            throw new RuntimeException("Posição inválida. Tente novamente!");
+            throw new ValorInvalidoException();
         } else {
             return coluna;
         }
-
-        /*char posicao = tabuleiro1[linha][coluna];
-
-        if (posicao == 'N') {
-            System.out.println("Posição já preenchida. Tente novamente!");
-            throw new RuntimeException("Posição já preenchida. Tente novamente!");
-
-        }*/
 
     }
 

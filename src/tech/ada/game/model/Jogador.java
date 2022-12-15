@@ -4,17 +4,19 @@ import java.util.Scanner;
 
 public class Jogador {
 
-    static Scanner scanner = new Scanner(System.in);
-    static String nome;
+    private String nome;
 
-    public static String getNome() {
-        System.out.println("\nDigite o seu nome:");
-        nome = scanner.next();
+    public Jogador() {
+    }
+
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\nDigite o seu nome:");
+        nome = scanner.next();
     }
 
 }

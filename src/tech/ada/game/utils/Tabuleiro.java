@@ -4,20 +4,26 @@ import tech.ada.game.model.Jogador;
 
 public class Tabuleiro {
 
-    public static void iniciaTabuleiro(char[][] tabuleiro) {
+    private String nome;
+
+    public Tabuleiro(String nome) {
+        this.nome = nome;
+    }
+
+    public void iniciaTabuleiro(String[][] tabuleiro) {
 
         for (int i = 0; i < tabuleiro.length; i++) {
             for (int j = 0; j < tabuleiro[i].length; j++) {
-                tabuleiro[i][j] = ' ';
+                tabuleiro[i][j] = " ";
             }
         }
 
     }
 
-    public static void imprimeTabuleiroJogador(char[][] tabuleiro) {
+    public void imprimeTabuleiroJogador(String[][] tabuleiro) {
 
         System.out.println("  -----------------------------------------");
-        System.out.println("                    JOGADOR                ");
+        System.out.println("                    " + nome.toUpperCase());
         System.out.println("  -----------------------------------------");
         System.out.println("    0   1   2   3   4   5   6   7   8   9");
         System.out.println("  -----------------------------------------");
@@ -32,7 +38,7 @@ public class Tabuleiro {
 
     }
 
-    public static void imprimeTabuleiroComputador(char[][] tabuleiro) {
+    public void imprimeTabuleiroComputador(String[][] tabuleiro) {
 
         System.out.println("  -----------------------------------------");
         System.out.println("                 COMPUTADOR                ");

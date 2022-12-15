@@ -1,8 +1,11 @@
 package tech.ada.game.model;
 
-public class Validador {
+public class ValidadorJogada {
 
-    public static char validaJogadorDaVez(int jogadorDaVez) {
+    public ValidadorJogada() {
+    }
+
+    public char validaJogadorDaVez(int jogadorDaVez) {
 
         // Se for par será Jogador
         // Se for ímpar será Computador
@@ -16,7 +19,7 @@ public class Validador {
 
     }
 
-    public static boolean validaFinalDoJogo(char[][] tabuleiro1, char[][] tabuleiro2, int submarinos, String nome) {
+    public boolean validaFinalDoJogo(String[][] tabuleiro1, String[][] tabuleiro2, int submarinos, String nome) {
 
         int qtdSubmarinosDestruidos1 = 0;
         int qtdSubmarinosDestruidos2 = 0;
@@ -24,9 +27,9 @@ public class Validador {
         for (int i = 0; i < tabuleiro1.length; i++) {
 
             for (int j = 0; j < tabuleiro1[i].length; j++) {
-                char embarcacao = tabuleiro1[i][j];
+                String embarcacao = tabuleiro1[i][j];
 
-                if (embarcacao == 'X' || embarcacao == '*') {
+                if (embarcacao == "X" || embarcacao == "*") {
                     qtdSubmarinosDestruidos1++;
                 }
             }
@@ -35,16 +38,16 @@ public class Validador {
         for (int i = 0; i < tabuleiro2.length; i++) {
 
             for (int j = 0; j < tabuleiro2[i].length; j++) {
-                char embarcacao = tabuleiro2[i][j];
+                String embarcacao = tabuleiro2[i][j];
 
-                if (embarcacao == 'X' || embarcacao == '*') {
+                if (embarcacao == "X" || embarcacao == "*") {
                     qtdSubmarinosDestruidos2++;
                 }
             }
         }
 
         if (qtdSubmarinosDestruidos1 == submarinos) {
-            System.out.println("\nTodos os navios foram destruídos. " + nome + ", você venceu!!!\n");
+            System.out.println("\nTodos os navios foram destruídos. " + nome.toUpperCase() + ", você venceu!!!\n");
             return true;
 
         } else if (qtdSubmarinosDestruidos2 == submarinos) {

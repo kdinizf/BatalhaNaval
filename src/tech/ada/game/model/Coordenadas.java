@@ -1,26 +1,39 @@
 package tech.ada.game.model;
 
+import tech.ada.game.exceptions.PosicaoPreenchidaException;
+import tech.ada.game.exceptions.ValorInvalidoException;
 import tech.ada.game.utils.Leitor;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class Coordenadas {
 
-    static Random random = new Random();
-    static Scanner scanner = new Scanner(System.in);
-    static Leitor leitor = new Leitor();
+    Random random = new Random();
+    Leitor leitor = new Leitor();
 
-    public static void posicionaSubmarinosJogador(char[][] tabuleiro, int submarinos) {
+    public Coordenadas() {
+    }
+
+    public void posicionaSubmarinosJogador(String[][] tabuleiro, int submarinos) {
 
         int qtdSubmarinos = 1;
         while (qtdSubmarinos <= submarinos) {
 
             System.out.println("*************** Submarino " + qtdSubmarinos + " ***************");
 
+            int linha = leitor.lerLinha();
+            int coluna = leitor.lerColuna();
+
             try {
-                tabuleiro[Leitor.lerLinha()][Leitor.lerColuna()] = 'N';
-            } catch (RuntimeException e) {
+
+                if (tabuleiro[linha][coluna].equals("N")) {
+                    throw new PosicaoPreenchidaException();
+                }
+
+                tabuleiro[linha][linha] = "N";
+
+            } catch (ValorInvalidoException | PosicaoPreenchidaException e) {
+                System.out.println(e.getMessage());
                 continue;
             }
 
@@ -30,16 +43,27 @@ public class Coordenadas {
 
     }
 
-    public static void posicionaSubmarinosComputador(char[][] tabuleiro, int submarinos) {
+    public void posicionaSubmarinosComputador(String[][] tabuleiro, int submarinos) {
 
         int qtdSubmarinos = 1;
 
         while (qtdSubmarinos <= submarinos) {
 
-            int linha = random.nextInt(10);
-            int coluna = random.nextInt(10);
+            try {
+                int linha = random.nextInt(10);
+                int coluna = random.nextInt(10);
 
-            tabuleiro[linha][coluna] = 'N';
+                if (tabuleiro[linha][coluna].equals("N")) {
+                    throw new PosicaoPreenchidaException();
+                }
+
+                tabuleiro[linha][coluna] = "N";
+
+            } catch (PosicaoPreenchidaException e) {
+                System.out.println(e.getMessage());
+                continue;
+
+            }
 
             qtdSubmarinos++;
 
@@ -47,89 +71,38 @@ public class Coordenadas {
 
     }
 
-    // '*' - Tiro certeiro
-    // 'X' - Tiro certeiro no tabuleiro do adversário, porém tem uma navio seu na posição
-    // 'N' - Submarino posicionado
-    // 'n' - Submarino posicionado no seu tabuleiro, porém foi água no tabuleiro do adversário
-    // '-' - Tiro na água
-    // ' ' - Sem tiro
-
-    public static void solicitaJogadaJogador(char[][] tabuleiro1, char[][] tabuleiro2) {
+    public void solicitaJogadaJogador(String[][] meuTabuleiro, String[][] tabuleiroInimigo) {
 
         try {
 
-            int linha = Leitor.lerLinha();
-            int coluna = Leitor.lerColuna();
+            int linha = leitor.lerLinha();
+            int coluna = leitor.lerColuna();
 
-            if (tabuleiro2[linha][coluna] == ' ' && tabuleiro1[linha][coluna] == ' ') {
-                System.out.println("\nTiro na água!");
-                tabuleiro1[linha][coluna] = '-';
-            }
+            ValidadorPosicao validadorPosicao = new ValidadorPosicao(tabuleiroInimigo, meuTabuleiro, linha, coluna);
+            meuTabuleiro[linha][coluna] = validadorPosicao.disparo();
 
-            if (tabuleiro2[linha][coluna] == ' ' && tabuleiro1[linha][coluna] == 'N') {
-                System.out.println("\nTiro na água!");
-                tabuleiro1[linha][coluna] = 'n';
-            }
-
-            if (tabuleiro2[linha][coluna] == 'N' && tabuleiro1[linha][coluna] == ' ') {
-                System.out.println("\nTiro certeiro!");
-                tabuleiro1[linha][coluna] = '*';
-            }
-
-            if (tabuleiro2[linha][coluna] == 'N' && tabuleiro1[linha][coluna] == 'N') {
-                System.out.println("\nTiro certeiro!");
-                tabuleiro1[linha][coluna] = 'X';
-            }
-
-            if (tabuleiro2[linha][coluna] == '*' && tabuleiro1[linha][coluna] == 'N') {
-                System.out.println("\nTiro na água!");
-                tabuleiro1[linha][coluna] = 'n';
-            }
-
-            /*if (tabuleiro1[linha][coluna] == 'n' || tabuleiro1[linha][coluna] == 'X' || tabuleiro1[linha][coluna] == '-' || tabuleiro1[linha][coluna] == '*') {
-                System.out.println("Posição já jogada anteriormente. Tente novamente!");
-            }*/
-
-        } catch (RuntimeException e) {
-            solicitaJogadaJogador(tabuleiro1, tabuleiro2);
+        } catch (ValorInvalidoException | PosicaoPreenchidaException e) {
+            System.out.println(e.getMessage());
+            solicitaJogadaJogador(meuTabuleiro, tabuleiroInimigo);
 
         }
 
     }
 
-    public static void solicitaJogadaComputador(char[][] tabuleiro1, char[][] tabuleiro2) {
+    public void solicitaJogadaComputador(String[][] meuTabuleiro, String[][] tabuleiroInimigo) {
 
-        int linha = random.nextInt(10);
-        int coluna = random.nextInt(10);
+        try {
+            int linha = random.nextInt(10);
+            int coluna = random.nextInt(10);
 
-        if (tabuleiro2[linha][coluna] == ' ' && tabuleiro1[linha][coluna] == ' ') {
-            System.out.println("Tiro na água!");
-            tabuleiro1[linha][coluna] = '-';
+            ValidadorPosicao validadorPosicao = new ValidadorPosicao(tabuleiroInimigo, meuTabuleiro, linha, coluna);
+            meuTabuleiro[linha][coluna] = validadorPosicao.disparo();
+
+        } catch (PosicaoPreenchidaException e) {
+            System.out.println(e.getMessage());
+            solicitaJogadaComputador(meuTabuleiro, tabuleiroInimigo);
+
         }
-
-        if (tabuleiro2[linha][coluna] == ' ' && tabuleiro1[linha][coluna] == 'N') {
-            System.out.println("Tiro na água!");
-            tabuleiro1[linha][coluna] = 'n';
-        }
-
-        if (tabuleiro2[linha][coluna] == 'N' && tabuleiro1[linha][coluna] == ' ') {
-            System.out.println("Tiro certeiro!");
-            tabuleiro1[linha][coluna] = '*';
-        }
-
-        if (tabuleiro2[linha][coluna] == 'N' && tabuleiro1[linha][coluna] == 'N') {
-            System.out.println("Tiro certeiro!");
-            tabuleiro1[linha][coluna] = 'X';
-        }
-
-        if (tabuleiro2[linha][coluna] == '*' && tabuleiro1[linha][coluna] == 'N') {
-            System.out.println("Tiro na água!");
-            tabuleiro1[linha][coluna] = 'n';
-        }
-
-        /*if (tabuleiro1[linha][coluna] == 'n' || tabuleiro1[linha][coluna] == 'X' || tabuleiro1[linha][coluna] == '-' || tabuleiro1[linha][coluna] == '*') {
-            System.out.println("Posição já jogada anteriormente. Tente novamente!");
-        }*/
 
     }
 
