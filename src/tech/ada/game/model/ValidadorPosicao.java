@@ -15,10 +15,10 @@ public class ValidadorPosicao {
 
     }
 
-    public String disparo() {
+    public String validaDisparo() {
 
         validaCampoVazioOuJaJogado(meuCampo, campoInimigo);
-        validaDisparo(meuCampo, campoInimigo);
+        validaCampoComSubmarino(meuCampo, campoInimigo);
         return novoValor;
 
     }
@@ -43,7 +43,7 @@ public class ValidadorPosicao {
 
     }
 
-    private void validaDisparo(String meuCampo, String campoInimigo) {
+    private void validaCampoComSubmarino(String meuCampo, String campoInimigo) {
 
         if (campoInimigo.equals("N") && meuCampo.equals(" ")) {
             System.out.println("Tiro certeiro!");

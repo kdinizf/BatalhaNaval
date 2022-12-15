@@ -79,7 +79,7 @@ public class Coordenadas {
             int coluna = leitor.lerColuna();
 
             ValidadorPosicao validadorPosicao = new ValidadorPosicao(meuTabuleiro, tabuleiroInimigo, linha, coluna);
-            meuTabuleiro[linha][coluna] = validadorPosicao.disparo();
+            meuTabuleiro[linha][coluna] = validadorPosicao.validaDisparo();
 
         } catch (ValorInvalidoException | PosicaoPreenchidaException e) {
             System.out.println(e.getMessage());
@@ -96,7 +96,7 @@ public class Coordenadas {
             int coluna = random.nextInt(10);
 
             ValidadorPosicao validadorPosicao = new ValidadorPosicao(meuTabuleiro, tabuleiroInimigo , linha, coluna);
-            meuTabuleiro[linha][coluna] = validadorPosicao.disparo();
+            meuTabuleiro[linha][coluna] = validadorPosicao.validaDisparo();
 
         } catch (PosicaoPreenchidaException e) {
             solicitaJogadaComputador(meuTabuleiro, tabuleiroInimigo);
