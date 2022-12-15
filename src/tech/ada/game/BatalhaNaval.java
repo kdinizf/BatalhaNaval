@@ -91,7 +91,6 @@ public class BatalhaNaval {
         while (resposta.equalsIgnoreCase("S"));
         System.out.println("Jogo Encerrado!");
 
-
     }
 
 }
