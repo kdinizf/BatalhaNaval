@@ -46,9 +46,15 @@ public class ValidadorPosicao {
         } else if (campoInimigo.equals("N") && meuCampo.equals("N")) {
             System.out.println("Tiro certeiro!");
             novoValor = "X";
+        } else if (campoInimigo.equals("X") && meuCampo.equals("N")) {
+            System.out.println("Tiro certeiro!");
+            novoValor = "X";
         } else if (campoInimigo.equals(" ") && meuCampo.equals("N")) {
             System.out.println("Tiro na água!");
             novoValor = "n";
+        } else if (campoInimigo.equals("-") && meuCampo.equals(" ")) {
+            System.out.println("Tiro na água!");
+            novoValor = "-";
         }
 
     }
