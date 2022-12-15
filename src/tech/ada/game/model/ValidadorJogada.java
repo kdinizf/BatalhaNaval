@@ -10,10 +10,10 @@ public class ValidadorJogada {
         // Se for par ser· Jogador
         // Se for Ìmpar ser· Computador
         if (jogadorDaVez % 2 == 0) {
-            System.out.println("\n… a sua vez de bombardear!\n");
+            System.out.println("… a sua vez de bombardear!");
             return 'J';
         } else {
-            System.out.println("\n… a vez do Computador bombardear!\n");
+            System.out.println("\n… a vez do Computador bombardear!");
             return 'C';
         }
 

@@ -30,7 +30,7 @@ public class Coordenadas {
                     throw new PosicaoPreenchidaException();
                 }
 
-                tabuleiro[linha][linha] = "N";
+                tabuleiro[linha][coluna] = "N";
 
             } catch (ValorInvalidoException | PosicaoPreenchidaException e) {
                 System.out.println(e.getMessage());

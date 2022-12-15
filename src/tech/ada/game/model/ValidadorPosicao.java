@@ -26,6 +26,7 @@ public class ValidadorPosicao {
     private void validaCampoVazioOuJaJogado(String campoInimigo, String meuCampo) {
 
         if (campoInimigo.equals(" ") && meuCampo.equals(" ")) {
+            System.out.println("Tiro na água!");
             novoValor = "-";
         } else if (meuCampo.equals("-") || meuCampo.equals("n") || meuCampo.equals("X") || meuCampo.equals("*")) {
             throw new PosicaoPreenchidaException();
@@ -36,10 +37,13 @@ public class ValidadorPosicao {
     private void validaDisparo(String campoInimigo, String meuCampo) {
 
         if (campoInimigo.equals("N") && meuCampo.equals(" ")) {
+            System.out.println("Tiro certeiro!");
             novoValor = "*";
         } else if (campoInimigo.equals("N") && meuCampo.equals("N")) {
+            System.out.println("Tiro certeiro!");
             novoValor = "X";
         } else if (campoInimigo.equals(" ") && meuCampo.equals("N")) {
+            System.out.println("Tiro na água!");
             novoValor = "n";
         }
 
